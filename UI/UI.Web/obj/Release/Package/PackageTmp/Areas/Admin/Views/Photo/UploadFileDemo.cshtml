@@ -1,0 +1,48 @@
+﻿<!-- begin #content -->
+<div id="content" class="content">
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li class="active">导航栏</li>
+        <li class="active">相册管理</li>
+        <li class="active">相片上传</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">PhotoUpload<small>header small text goes here...</small></h1>
+    <!-- end page-header -->
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <div class="panel-heading-btn">
+                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+            </div>
+            <h4 class="panel-title">相片上传(上传到服务器文件夹)</h4>
+        </div>
+        <div class="panel-body">
+                <div class="row fileupload-buttonbar">
+                    <div>
+                        <input id="Filedata" type="file" name="Filedata"/>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<!-- end #content -->
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Filedata').uploadify({
+            swf: '/src/uploadify/uploadify.swf',
+            uploader: "/Admin/Photo/UploadFile",
+            multi: false,
+            auto: true,
+            fileObjName: 'Filedata'
+        });
+    });
+</script>

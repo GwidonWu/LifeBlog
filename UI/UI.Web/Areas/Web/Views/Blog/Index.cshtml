@@ -1,0 +1,63 @@
+﻿@using DAL.Entity.Entities
+@model List<Blog>
+
+<!-- begin #page-title -->
+<div id="page-title" class="page-title has-bg">
+    <div class="bg-cover"><img src="~/src/Images/Img/cover8.jpg" alt="" /></div>
+    <div class="container">
+        <h1>LifeBlog</h1>
+        <p>用文字记录生活点滴</p>
+    </div>
+</div>
+<!-- end #page-title -->
+<!-- begin #content -->
+<div id="content" class="content">
+    <!-- begin container -->
+    <div class="container">
+        <!-- begin post-list -->
+        <div class="post-list post-grid post-grid-3">
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="post-li">
+                        <!-- begin post-content -->
+                        <div class="post-content">
+                            <!-- begin post-info -->
+                            <div class="post-info">
+                                <h4 class="post-title">
+                                    <a href="@Html.Raw("/Web/Blog/BlogDetail/" + item.ID + ".html")">@item.Title</a>
+                                </h4>
+                                <div class="post-by">
+                                    作者 <a href="@Url.Action("About","Home")">@item.Author</a><span class="divider">|</span><a href="@Html.Raw("/Web/Blog/BlogCategory/" + item.Category.ID + ".html")">@item.Category.Name</a><span class="divider">|</span> @item.CreateTime.ToString("yyyy-MM-dd")
+                                </div>
+                                <div class="read-btn-container">
+                                    <a href="@Html.Raw("/Web/Blog/BlogDetail/" + item.ID + ".html")">继续阅读 <i class="fa fa-angle-double-right"></i></a>
+                                </div>
+                            </div>
+                            <!-- end post-info -->
+                        </div>
+                        <!-- end post-content -->
+                    </div>
+                }
+            }
+        </div>
+        <!-- end post-list -->
+        <div class="section-container">
+            <!-- begin pagination -->
+            <div class="pagination-container text-center">
+                <div class="col-md-2">
+                    当前页 @ViewBag.PageIndex
+                    共 @ViewBag.PageCount 页
+                </div>
+                <div class="col-md-10">
+                    <ul class="pagination m-t-0 m-b-0">
+                        @Html.Raw(ViewBag.Page)
+                    </ul>
+                </div>
+            </div>
+            <!-- end pagination -->
+        </div>
+    </div>
+    <!-- end container -->
+</div>
+<!-- end #content -->

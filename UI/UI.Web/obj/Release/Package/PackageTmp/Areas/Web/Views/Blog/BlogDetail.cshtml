@@ -1,0 +1,260 @@
+﻿@{
+    var preAndnext = ViewBag.PrevAndNext as List<Tuple<int, string>>;
+}
+@using UI.Web.Areas.Web.Models
+@model ListModel
+
+<!-- begin #content -->
+<div id="content" class="content">
+    <!-- begin container -->
+    <div class="container">
+        <!-- begin row -->
+        <div class="row row-space-30">
+            <!-- begin col-9 -->
+            <div class="col-md-9">
+                <!-- begin post-detail -->
+                <div class="post-detail section-container">
+                    <h4 class="post-title">
+                        <a href="@Html.Raw("/Web/Blog/BlogDetail/" + Model.blog.ID + ".html")">@Model.blog.Title</a>
+                    </h4>
+                    <div class="post-by">
+                        作者 <a href="@Url.Action("About","Home")">@Model.blog.Author</a> <span class="divider">|</span> @Model.blog.CreateTime <span class="divider">|</span> <a href="@Html.Raw("/Web/Blog/BlogCategory/" + Model.blog.Category.ID + ".html")">@Model.blog.Category.Name</a><span class="divider">|</span> @Model.blog.BrowseNum 阅读<span class="divider">|</span> @Model.blog.Comment 评论
+                    </div>
+                    <!-- begin post-desc -->
+                    <div class="post-desc">
+                        @Html.Raw(Model.blog.Content)
+                    </div>
+                    <!-- end post-desc -->
+                    @if (preAndnext.Count > 0)
+                    {
+                        <div class="dv-article-pre-next">
+                            <ul>
+                                @for (int x = 0; x < preAndnext.Count; x++)
+                                {
+                                    if (preAndnext[x].Item1 > 0)
+                                    {
+                                        <li>@(x == 0 ? "上一篇" : "下一篇")：<a href="@Url.Action("BlogDetail/"+preAndnext[x].Item1)">@preAndnext[x].Item2</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li> @(x == 0 ? "上一篇" : "下一篇")：没有了</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    }
+                    <!-- JiaThis Button BEGIN -->
+                    <div class="jiathis_style">
+                        <span class="jiathis_txt">分享到：</span>
+                        <a class="jiathis_button_qzone">QQ空间</a>
+                        <a class="jiathis_button_cqq">QQ好友</a>
+                        <a class="jiathis_button_weixin">微信</a>
+                        <a class="jiathis_button_tsina">新浪微博</a>
+                    </div>
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                    <!-- JiaThis Button END -->
+                </div>
+                <!-- end post-detail -->
+                <!-- begin section-container -->
+                <div class="section-container">
+                    <h4 class="section-title"><span>所有评论 (@Model.blog.Comment)</span></h4>
+                    <!-- begin comment-list -->
+                    <ul class="comment-list">
+                        @{
+                            int z = 1;
+                            if (Model.commentModel.Any())
+                            {
+                                foreach (var item in Model.commentModel)
+                                {
+                                    <li>
+                                        <!-- begin comment-avatar -->
+                                        <div class="comment-avatar">
+                                            <img src="~/src/Images/Img/comment.jpg" alt="" />
+                                        </div>
+                                        <!-- end comment-avatar -->
+                                        <!-- begin comment-container -->
+                                        <div class="comment-container">
+                                            <div class="comment-content">
+                                                @item.Name
+                                                <span class="comment-date">
+                                                    <span class="underline">@item.CommentTime.ToString("yyyy-MM-dd")</span> <span class="underline">@item.CommentTime.ToString("HH:mm:ss")</span>
+                                                </span>
+                                                <span style="float:right;">#@z</span>
+                                            </div>
+                                            <div class="comment-author">
+                                                @item.Content
+                                            </div>
+                                        </div>
+                                        <!-- end comment-container -->
+                                    </li>
+                                    z++;
+                                }
+                            }
+                            else
+                            {
+                                <p style="text-align:center;">亲，沙发正空着，还不快来抢？</p>
+                            }
+                        }
+                    </ul>
+                    <!-- end comment-list -->
+                </div>
+                <!-- end section-container -->
+                <!-- begin section-container -->
+                <div class="section-container">
+                    <h4 class="section-title m-b-20"><span>评论</span></h4>
+                    @using (Html.BeginForm("AddComment", "Blog", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(m => m.commentViewModel.BlogID, new { @class = "form-control", style = "display:none;", Value = Model.blog.ID })
+                        <div class="form-group">
+                            <label class="control-label f-s-12 col-md-2">评论人 <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.commentViewModel.Name, new { @class = "form-control", placeholder = "您的称呼" })
+                                @Html.ValidationMessageFor(m => m.commentViewModel.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label f-s-12 col-md-2">内容 <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(m => m.commentViewModel.Content, new { @class = "form-control", rows = "5", placeholder = "说点什么吧..." })
+                                @Html.ValidationMessageFor(m => m.commentViewModel.Content, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <!-- end section-container -->
+            </div>
+            <!-- end col-9 -->
+            <!-- begin col-3 -->
+            <div class="col-md-3">
+                <!-- begin section-container -->
+                <div class="section-container">
+                    <h4 class="section-title"><span>音乐</span></h4>
+                    <ul class="sidebar-list">
+                        <audio controls="controls" autoplay="autoplay">
+                            <source src="~/src/Music/yssa.mp3" type="audio/mpeg">
+                            <embed height="100" width="100" src="~/src/Music/yssa.mp3" />
+                        </audio>
+                    </ul>
+                </div>
+                <!-- end section-container -->
+                <!-- begin section-container -->
+                <div class="section-container">
+                    <h4 class="section-title"><span>分类</span></h4>
+                    <ul class="sidebar-list">
+                        @{
+                            foreach (var item in Model.categoryModel)
+                            {
+                                if (item.Count == 0)
+                                {
+                                    <li><a href="#">@item.Name (@item.Count)</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@Html.Raw("/Web/Blog/BlogCategory/" + item.ID + ".html")">@item.Name (@item.Count)</a></li>
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+                <!-- end section-container -->
+                <!-- begin section-container -->
+                <div class="section-container">
+                    <h4 class="section-title"><span>最新评论</span></h4>
+                    <ul class="sidebar-recent-post">
+                        @{
+                            int i = 1;
+                            foreach (var item in Model.commentModel2)
+                            {
+                                if (i < 6)
+                                {
+                                    <div class="info">
+                                        <h5 class="title">@i. Re：<a href="@Html.Raw("/Web/Blog/BlogDetail/" + item.BlogID + ".html")">@item.Blog.Title</a></h5>
+                                        <h5 class="title">@item.Content</h5>
+                                        <div class="date" style="text-align:right;">--@item.Name</div>
+                                        <hr />
+                                    </div>
+                                    i++;
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+                <!-- end section-container -->
+                <!-- begin section-container -->
+                <div class="section-container">
+                    <h4 class="section-title"><span>评论排行榜</span></h4>
+                    <ul class="sidebar-recent-post">
+                        @{
+                            int j = 1;
+                            foreach (var item in Model.blogModel3)
+                            {
+                                if (item.Comment > 0)
+                                {
+                                    if (j < 6)
+                                    {
+                                        <div class="info">
+                                            <h5 class="title">@j. <a href="@Html.Raw("/Web/Blog/BlogDetail/" + item.ID + ".html")">@item.Title (@item.Comment)</a></h5>
+                                            @*<div class="date">@item.CreateTime</div>*@
+                                            <hr />
+                                        </div>
+                                        j++;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+                <!-- end section-container -->
+                <!-- begin section-container -->
+                <div class="section-container">
+                    <h4 class="section-title"><span>阅读排行榜</span></h4>
+                    <ul class="sidebar-recent-post">
+                        @{
+                            int y = 1;
+                            foreach (var item in Model.blogModel2)
+                            {
+                                if (item.BrowseNum > 0)
+                                {
+                                    if (y < 6)
+                                    {
+                                        <div class="info">
+                                            <h5 class="title">@y. <a href="@Html.Raw("/Web/Blog/BlogDetail/" + item.ID + ".html")">@item.Title (@item.BrowseNum)</a></h5>
+                                            @*<div class="date">@item.CreateTime</div>*@
+                                            <hr />
+                                        </div>
+                                        y++;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+                <!-- end section-container -->
+            </div>
+            <!-- end col-3 -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end #content -->

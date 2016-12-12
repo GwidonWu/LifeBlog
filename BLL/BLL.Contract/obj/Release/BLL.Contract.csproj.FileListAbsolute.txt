@@ -1,0 +1,14 @@
+E:\MyProject\LifeBlog\BLL\BLL.Contract\bin\Release\BLL.Contract.dll
+E:\MyProject\LifeBlog\BLL\BLL.Contract\bin\Release\BLL.Contract.pdb
+E:\MyProject\LifeBlog\BLL\BLL.Contract\obj\Release\BLL.Contract.csprojResolveAssemblyReference.cache
+E:\MyProject\LifeBlog\BLL\BLL.Contract\obj\Release\BLL.Contract.dll
+E:\MyProject\LifeBlog\BLL\BLL.Contract\obj\Release\BLL.Contract.pdb
+F:\winterWork\LifeBlog\BLL\BLL.Contract\bin\Release\BLL.Contract.dll
+F:\winterWork\LifeBlog\BLL\BLL.Contract\bin\Release\BLL.Contract.pdb
+F:\winterWork\LifeBlog\BLL\BLL.Contract\bin\Release\DAL.Entity.dll
+F:\winterWork\LifeBlog\BLL\BLL.Contract\bin\Release\DAL.Entity.pdb
+F:\winterWork\LifeBlog\BLL\BLL.Contract\obj\Release\BLL.Contract.csprojResolveAssemblyReference.cache
+F:\winterWork\LifeBlog\BLL\BLL.Contract\obj\Release\BLL.Contract.dll
+F:\winterWork\LifeBlog\BLL\BLL.Contract\obj\Release\BLL.Contract.pdb
+E:\MyProject\LifeBlog\BLL\BLL.Contract\bin\Release\DAL.Entity.dll
+E:\MyProject\LifeBlog\BLL\BLL.Contract\bin\Release\DAL.Entity.pdb

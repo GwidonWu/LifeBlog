@@ -1,0 +1,80 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <title>祭奠爱情</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="~/src/Love/css/carousel.css" rel="stylesheet" />
+
+    <style>
+        h2 {
+            text-align: center;
+            color: #080808;
+        }
+
+        .img-circle {
+            text-align: center;
+        }
+    </style>
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-inner" role="listbox">
+            <h2>祭奠逝去的爱情</h2>
+        </div>
+    </div><!-- /.carousel -->
+
+
+    <div class="container marketing">
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-md-6">
+                <div style="text-align:center;">
+                    <a href="@Url.Action("Girl","Love")" target="_blank"><img class="img-circle" src="~/src/Love/images/girl2.jpg" alt="" style="width: 140px; height: 140px;"></a>
+                </div>
+                <a href="@Url.Action("Girl","Love")" target="_blank"><h2>XXX</h2></a>
+                <p style="text-indent:2em;">还要找什么理由,爱情早已无法回首,曾经说好的天长地久,早已空空化作无有,还要找什么借口,不爱我就请你放手,别把从前的誓言,当成你爱情中的枷锁……</p>
+                @*<p><a class="btn btn-default" href="@Url.Action("Girl","Love")" role="button" target="_blank">点击进入 &raquo;</a></p>*@
+            </div><!-- /.col-lg-4 -->
+            <div class="col-md-6">
+            <div style="text-align:center;">
+                <a href="@Url.Action("Boy","Love")" target="_blank"><img class="img-circle" src="~/src/Love/images/boy2.jpg" alt="" style="width: 140px; height: 140px;"></a>
+                <a href="@Url.Action("Boy","Love")" target="_blank"><h2>WZD</h2></a>
+            </div>
+                <p style="text-indent:2em;">还要找什么理由,爱情早已无法回首,曾经说好的天长地久,早已空空化作无有,还要找什么借口,不爱我就请你放手,别把从前的誓言,当成你爱情中的枷锁……</p>
+                @*<p><a class="btn btn-default" href="@Url.Action("Boy","Love")" role="button" target="_blank">点击进入 &raquo;</a></p>*@
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+        <!-- START THE FEATURETTES -->
+    </div><!-- /.container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+</body>
+</html>

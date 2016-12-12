@@ -1,0 +1,13 @@
+E:\MyProject\LifeBlog\BLL\BLL.Test\bin\Debug\BLL.Test.dll
+E:\MyProject\LifeBlog\BLL\BLL.Test\bin\Debug\BLL.Test.pdb
+E:\MyProject\LifeBlog\BLL\BLL.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\MyProject\LifeBlog\BLL\BLL.Test\bin\Debug\zh-Hans\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+E:\MyProject\LifeBlog\BLL\BLL.Test\obj\Debug\BLL.Test.dll
+E:\MyProject\LifeBlog\BLL\BLL.Test\obj\Debug\BLL.Test.pdb
+F:\winterWork\LifeBlog\BLL\BLL.Test\bin\Debug\BLL.Test.dll
+F:\winterWork\LifeBlog\BLL\BLL.Test\bin\Debug\BLL.Test.pdb
+F:\winterWork\LifeBlog\BLL\BLL.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+F:\winterWork\LifeBlog\BLL\BLL.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+F:\winterWork\LifeBlog\BLL\BLL.Test\obj\Debug\BLL.Test.dll
+F:\winterWork\LifeBlog\BLL\BLL.Test\obj\Debug\BLL.Test.pdb
+F:\winterWork\LifeBlog\BLL\BLL.Test\obj\Debug\BLL.Test.csprojResolveAssemblyReference.cache

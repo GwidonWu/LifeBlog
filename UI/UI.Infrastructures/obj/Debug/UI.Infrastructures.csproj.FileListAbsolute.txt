@@ -1,0 +1,15 @@
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\bin\Debug\UI.Infrastructures.dll
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\bin\Debug\UI.Infrastructures.pdb
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\bin\Debug\zh-Hans\Microsoft.AspNet.Identity.Owin.resources.dll
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\obj\Debug\UI.Infrastructures.dll
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\obj\Debug\UI.Infrastructures.pdb
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\bin\Debug\UI.Infrastructures.dll
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\bin\Debug\UI.Infrastructures.pdb
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\bin\Debug\zh-Hans\Microsoft.AspNet.Identity.Owin.resources.dll
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\obj\Debug\UI.Infrastructures.csprojResolveAssemblyReference.cache
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\obj\Debug\UI.Infrastructures.dll
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\obj\Debug\UI.Infrastructures.pdb

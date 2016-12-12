@@ -1,0 +1,10 @@
+F:\winterWork\LifeBlog\DAL\DAL.Entity\bin\Debug\DAL.Entity.dll
+F:\winterWork\LifeBlog\DAL\DAL.Entity\bin\Debug\DAL.Entity.pdb
+F:\winterWork\LifeBlog\DAL\DAL.Entity\obj\Debug\DAL.Entity.dll
+F:\winterWork\LifeBlog\DAL\DAL.Entity\obj\Debug\DAL.Entity.pdb
+E:\MyProject\LifeBlog\DAL\DAL.Entity\bin\Debug\DAL.Entity.dll
+E:\MyProject\LifeBlog\DAL\DAL.Entity\bin\Debug\DAL.Entity.pdb
+E:\MyProject\LifeBlog\DAL\DAL.Entity\obj\Debug\DAL.Entity.dll
+E:\MyProject\LifeBlog\DAL\DAL.Entity\obj\Debug\DAL.Entity.pdb
+E:\MyProject\LifeBlog\DAL\DAL.Entity\obj\Debug\DAL.Entity.csprojResolveAssemblyReference.cache
+F:\winterWork\LifeBlog\DAL\DAL.Entity\obj\Debug\DAL.Entity.csprojResolveAssemblyReference.cache

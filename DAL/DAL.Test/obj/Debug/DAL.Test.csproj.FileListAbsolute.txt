@@ -1,0 +1,14 @@
+E:\MyProject\LifeBlog\DAL\DAL.Test\bin\Debug\DAL.Test.dll
+E:\MyProject\LifeBlog\DAL\DAL.Test\bin\Debug\DAL.Test.pdb
+E:\MyProject\LifeBlog\DAL\DAL.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\MyProject\LifeBlog\DAL\DAL.Test\bin\Debug\zh-Hans\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+E:\MyProject\LifeBlog\DAL\DAL.Test\obj\Debug\DAL.Test.csprojResolveAssemblyReference.cache
+E:\MyProject\LifeBlog\DAL\DAL.Test\obj\Debug\DAL.Test.dll
+E:\MyProject\LifeBlog\DAL\DAL.Test\obj\Debug\DAL.Test.pdb
+F:\winterWork\LifeBlog\DAL\DAL.Test\bin\Debug\DAL.Test.dll
+F:\winterWork\LifeBlog\DAL\DAL.Test\bin\Debug\DAL.Test.pdb
+F:\winterWork\LifeBlog\DAL\DAL.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+F:\winterWork\LifeBlog\DAL\DAL.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+F:\winterWork\LifeBlog\DAL\DAL.Test\obj\Debug\DAL.Test.dll
+F:\winterWork\LifeBlog\DAL\DAL.Test\obj\Debug\DAL.Test.pdb
+F:\winterWork\LifeBlog\DAL\DAL.Test\obj\Debug\DAL.Test.csprojResolveAssemblyReference.cache

@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="baidu-site-verification" content="zIhiqmAOh1" />
+    <meta charset="utf-8" />
+    <title>LifeBlog--用文字记录生活点滴</title>
+    <meta name="Keywords" content="LifeBlog,lifeblog,life,blog,博客,生活博客">
+    <meta name="Description" content="LifeBlog生活博客">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="WZD" name="author" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="~/src/Web/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/src/Web/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/src/Web/assets/css/animate.min.css" rel="stylesheet" />
+    <link href="~/src/Web/assets/css/style.min.css" rel="stylesheet" />
+    <link href="~/src/Web/assets/css/style-responsive.min.css" rel="stylesheet" />
+    <link href="~/src/Web/assets/css/theme/default.css" id="theme" rel="stylesheet" />
+    <!-- ================== END BASE CSS STYLE ================== -->
+
+    <link href="~/src/Love/css/default.css" type="text/css" rel="stylesheet">
+
+    <link href="~/src/Admin/assets/plugins/isotope/isotope.css" rel="stylesheet" />
+    <link href="~/src/Admin/assets/plugins/lightbox/css/lightbox.css" rel="stylesheet" />
+
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="~/src/Web/assets/plugins/pace/pace.min.js"></script>
+    <!-- ================== END BASE JS ================== -->
+</head>
+<body>
+    <div class="loading" style="margin:0 auto;">
+        <img src="~/src/Images/Img/zoro.gif" />
+        <div><span>不管接下来发生什么事，你都不能停止前进！</span></div>
+    </div>
+    <!-- begin #header -->
+    <div id="header" class="header navbar navbar-default navbar-fixed-top">
+        <!-- begin container -->
+        <div class="container">
+            <!-- begin navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Index", "Home", new { area = "Web" })" class="navbar-brand">
+                    @*<span class="brand-logo"></span>*@
+                    <span><img src="~/src/Images/Img/user.jpg" alt="" style="width:35px;height:35px;" /></span>
+                    <span class="brand-text">
+                        LifeBlog
+                    </span>
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- begin navbar-collapse -->
+            <div class="collapse navbar-collapse" id="header-navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Index","Home")">主页</a></li>
+                    <li><a href="@Url.Action("Index","Blog")">日志</a></li>
+                    <li><a href="@Url.Action("Index","Album")">相册</a></li>
+                    <li><a href="@Url.Action("Index","Message")">留言</a></li>
+                    <li><a href="@Url.Action("About","Home")">关于我</a></li>
+                    <li><a href="http://love.wzdyyl.cn" target="_blank">祭奠爱情</a></li>
+                    @*<li style="top:8px;">
+                        <audio controls="controls" autoplay="autoplay">
+                            <source src="~/src/Music/yssa.mp3" type="audio/mpeg">
+                            <embed height="100" width="100" src="~/src/Music/yssa.mp3" />
+                        </audio>
+                    </li>*@
+                </ul>
+            </div>
+            <!-- end navbar-collapse -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #header -->
+
+    @RenderBody()
+
+    <!-- begin scroll to top btn -->
+    <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+    <!-- end scroll to top btn -->
+    <!-- begin #footer-copyright -->
+    <div id="footer-copyright" class="footer-copyright">
+        <!-- begin container -->
+        <div class="container">
+            <span class="copyright">友情链接： </span><a href="https://github.com/wintoner" style="color:#919497;" target="_blank">GitHub</a><span> | </span><a href="http://www.yueyouji.cn/" style="color:#919497;" target="_blank">粤游记</a><span> | </span><a href="http://www.cnblogs.com/" style="color:#919497;" target="_blank">博客园</a>
+        </div>
+        <div class="container">
+            <span class="copyright">&copy; @DateTime.Now.Year LifeBlog By WZD<span> | </span><a href="http://www.miitbeian.gov.cn/" style="color:#919497;">沪ICP备16047615号</a></span>
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #footer-copyright -->
+    <!-- begin theme-panel -->
+    <div class="theme-panel">
+        <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
+        <div class="theme-panel-content">
+            <ul class="theme-list clearfix">
+                <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
+                <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
+                <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
+                <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
+                <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- end theme-panel -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="~/src/Web/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+    <script src="~/src/Web/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+    <script src="~/src/Web/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="assets/crossbrowserjs/html5shiv.js"></script>
+        <script src="assets/crossbrowserjs/respond.min.js"></script>
+        <script src="assets/crossbrowserjs/excanvas.min.js"></script>
+    <![endif]-->
+    <script src="~/src/Web/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <script src="~/src/Web/assets/plugins/masonry/masonry.min.js"></script>
+    <script src="~/src/Web/assets/js/apps.js"></script>
+    <!-- ================== END BASE JS ================== -->
+
+    <script src="~/src/Admin/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/src/Admin/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            App.init();
+        });
+    </script>
+    <script>
+        $(function () {
+            var $backToTopEle = $('.btn'), $backToTopFun = function () {
+                var st = $(document).scrollTop(), winh = $(window).height();
+                (st > 200) ? $backToTopEle.fadeIn('slow') : $backToTopEle.fadeOut('slow');
+                //IE6下的定位
+                if (!window.XMLHttpRequest) {
+                    $backToTopEle.css("top", st + winh - 166);
+                }
+            };
+            $('.btn').click(function () {
+                $("html, body").animate({ scrollTop: 0 }, 1200);
+            })
+            $backToTopEle.hide();
+            $backToTopFun();
+            $(window).bind("scroll", $backToTopFun);
+            $('#catalogWord').click(function () {
+                $("#catalog").slideToggle(600);
+            })
+        })
+    </script>
+
+    <script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</body>
+</html>

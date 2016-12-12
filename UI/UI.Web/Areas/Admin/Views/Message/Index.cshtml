@@ -1,0 +1,98 @@
+﻿@{
+    var result = ViewData["result"] as IEnumerable<DAL.Entity.Entities.Message>;
+}}
+
+<!-- begin #content -->
+<div id="content" class="content">
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li class="active">导航栏</li>
+        <li class="active">留言管理</li>
+        <li class="active">留言列表</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">留言列表<small>header small text goes here...</small></h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-10 -->
+        <div class="col-md-12">
+            <!-- begin panel -->
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                    </div>
+                    <h4 class="panel-title">MessageList</h4>
+                </div>
+                <div class="panel-body">
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>留言人</th>
+                                <th>留言内容</th>
+                                <th>留言时间</th>
+                                <th>留言IP</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in result)
+                            {
+                                <tr>
+                                    <td>@item.ID<input id="Hidden1" type="hidden" value="@item.ID" /></td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Content</td>
+                                    <td>@item.MessageTime</td>
+                                    <td>@item.MessageIP</td>
+                                    <td><input type="button" class="Update" title="Update" value="编辑"><span> </span><input type="button" class="Delete" title="Delete" value="删除"></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- end panel -->
+        </div>
+        <!-- end col-10 -->
+    </div>
+    <!-- end row -->
+</div>
+<!-- end #content -->
+
+<script src="~/src/Admin/assets/plugins/DataTables/media/js/jquery.js"></script>
+<script>
+		$(document).ready(function() {
+			$('#example').dataTable();
+		});
+
+		$(function () {
+		    $('table').on('click', '.Delete', function () {
+		        var td = $(this).closest('tr').find('td');
+
+		        var obj = {};
+		        obj.ID = td.find("input:hidden[id=Hidden1]").val();
+
+		        $.ajax({
+		            type: "POST",
+		            url: "/Admin/Message/DeleteMessage",
+		            data: JSON.stringify(obj),
+		            dataType: "json",
+		            contentType: "application/json;charset=utf-8",
+		            success: function (data) {
+		                alert("删除成功!")
+		                row.remove();
+		            },
+		            error: function (jqXHR, textStatus, errorThrown) {
+		                alert(errorThrown);
+		            }
+		        });
+		    });
+		});
+</script>
+

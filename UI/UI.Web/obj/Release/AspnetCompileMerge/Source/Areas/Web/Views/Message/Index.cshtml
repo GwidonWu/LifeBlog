@@ -1,0 +1,89 @@
+﻿@using UI.Web.Areas.Web.Models
+@model ListModel
+
+<!-- begin #page-title -->
+<div id="page-title" class="page-title has-bg">
+    <div class="bg-cover"><img src="~/src/Images/Img/cover12.jpg" alt="" /></div>
+    <div class="container">
+        <h1>LifeBlog</h1>
+        <p>用文字记录生活点滴</p>
+    </div>
+</div>
+<!-- end #page-title -->
+<!-- begin #content -->
+<div id="content" class="content">
+    <!-- begin container -->
+    <div class="container">
+        <!-- begin post-list -->
+        <div class="post-list post-grid post-grid-3">
+            @{
+                int i = 1;
+                foreach (var item in Model.messageModel)
+                {
+                    <div class="post-li">
+                        <!-- begin post-content -->
+                        <div class="post-content">
+                            <!-- begin post-info -->
+                            <div class="post-info">
+                                <h4 class="post-title">
+                                    @item.Content
+                                </h4>
+                                <div class="post-by">
+                                    @item.Name <span class="divider">|</span> @item.MessageTime
+                                    <span style="float:right">#@i</span>
+                                </div>
+                            </div>
+                            <!-- end post-info -->
+                        </div>
+                        <!-- end post-content -->
+                    </div>
+                    i++;
+                }
+            }
+        </div>
+        <!-- end post-list -->
+        <div class="section-container">
+            <!-- begin pagination -->
+            <div class="pagination-container text-center">
+                <div class="col-md-2">
+                    当前页 @ViewBag.PageIndex
+                    共 @ViewBag.PageCount 页
+                </div>
+                <div class="col-md-10">
+                    <ul class="pagination m-t-0 m-b-0">
+                        @Html.Raw(ViewBag.Page)
+                    </ul>
+                </div>
+            </div>
+            <!-- end pagination -->
+        </div>
+        <!-- begin section-container -->
+        <div class="section-container">
+            <h4 class="section-title m-b-20"><span>留言</span></h4>
+            @using (Html.BeginForm("AddMessage", "Message", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-group">
+                    <label class="control-label f-s-12 col-md-2">留言人 <span class="text-danger">*</span></label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.messageViewModel.Name, new { @class = "form-control", placeholder = "您的称呼" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label f-s-12 col-md-2">留言内容 <span class="text-danger">*</span></label>
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.messageViewModel.Content, new { @class = "form-control", rows = "5", placeholder = "说点什么吧..." })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <button type="submit" id="btn" class="btn btn-primary">提交</button>
+                    </div>
+                </div>
+            }
+        </div>
+        <!-- end section-container -->
+        <br />
+    </div>
+    <!-- end container -->
+</div>
+<!-- end #content -->

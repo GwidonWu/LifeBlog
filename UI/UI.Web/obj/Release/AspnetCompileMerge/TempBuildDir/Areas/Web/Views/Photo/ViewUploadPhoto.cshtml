@@ -1,0 +1,106 @@
+﻿
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+@*<link href="~/src/Admin/assets/plugins/isotope/isotope.css" rel="stylesheet" />
+    <link href="~/src/Admin/assets/plugins/lightbox/css/lightbox.css" rel="stylesheet" />*@
+
+
+<!-- begin #page-title -->
+<div id="page-title" class="page-title has-bg">
+    <div class="bg-cover"><img src="~/src/Images/Img/cover11.jpg" alt="" /></div>
+    <div class="container">
+        <h1>LifeBlog</h1>
+        <p>用相片记录生活点滴</p>
+    </div>
+</div>
+<!-- end #page-title -->
+<!-- begin #content -->
+<div id="content" class="content">
+    <div class="container">
+        <div id="gallery" class="gallery">
+                    <div id="tbody1" class="image">
+                        @*<div class="image-inner">
+
+                        </div>
+                        <div class="image-info">
+                            <h5 class="title">@item.OldFileName</h5>
+                        </div>*@
+                    </div>
+            <div id="dialog" style="display:none;" title="Dialog Title">
+            </div>
+        </div>
+        <div class="section-container">
+            <!-- begin pagination -->
+            <div class="pagination-container text-center">
+                <div class="col-md-2">
+                    当前页 @ViewBag.PageIndex
+                    共 @ViewBag.PageCount 页
+                </div>
+                <div class="col-md-10">
+                    <ul class="pagination m-t-0 m-b-0">
+                        @Html.Raw(ViewBag.Page)
+                    </ul>
+                </div>
+            </div>
+            <!-- end pagination -->
+        </div>
+    </div>
+</div>
+<!-- end #content -->
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.4.js"></script>
+@*<script src="~/src/Admin/assets/plugins/isotope/jquery.isotope.min.js"></script>
+    <script src="~/src/Admin/assets/plugins/lightbox/js/lightbox-2.6.min.js"></script>
+    <script src="~/src/Admin/assets/js/gallery.demo.min.js"></script>*@
+
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: 'GET',
+            url: '/Web/Photo/GetAllUploadFile',
+            dataType: 'json',
+            contentType: 'application/json;charser=utf-8',
+            success: function (data, textStatus) {
+                var tbody = $('#tbody1');
+                $.each(data, function (i, item) {
+                    OutputData(tbody, item);
+                });
+            }
+        });
+    });
+
+    function OutputData(tbody, item) {
+        var uploadTime = new Date(parseInt(item.CreateTime.substr(6)));
+        var uploadDate = uploadTime.getFullYear() + "-" + uploadTime.getMonth() + "-" + uploadTime.getDate();
+        tbody.append("<div class=\"image-inner\" id=\"DivImg" + item.ID + "\"/><div class=\"image-info\"><h5 class=\"title\"></h5></div>");
+
+        var imgTag = $('#DivImg' + item.ID);
+
+        $.get("/Web/Photo/GetThumbnailImage",
+        { NewFileName: item.NewFileName },
+        function (data) {
+            imgTag.html(data);
+        });
+
+        imgTag.click(function () {
+            $("#dialog").dialog({
+                autoOpen: false,
+                position: 'center',
+                title: item.OldFileName,
+                draggable: false,
+                width: 700,
+                height: 600,
+                resizable: true,
+                modal: true,
+            }).dialog("open");
+
+            $.get("/Web/Photo/GetImage",
+                        { NewFileName: item.NewFileName },
+                        function (data) {
+                            $('#dialog').html(data);
+                        });
+        });
+
+    }
+</script>

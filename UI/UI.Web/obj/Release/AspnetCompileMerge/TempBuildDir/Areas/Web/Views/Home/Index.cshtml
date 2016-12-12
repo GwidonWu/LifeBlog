@@ -1,0 +1,213 @@
+﻿@using UI.Web.Areas.Web.Models
+@model ListModel
+<!-- begin #page-title -->
+<div id="page-title" class="page-title has-bg">
+    <div class="bg-cover"><img src="~/src/Images/Img/cover6.jpg" alt="" /></div>
+    <div class="container">
+        <h1>LifeBlog</h1>
+        <p>用文字记录生活点滴</p>
+    </div>
+</div>
+<!-- end #page-title -->
+<!-- begin #content -->
+<div id="content" class="content">
+    <!-- begin container -->
+    <div class="container">
+        <!-- begin row -->
+        <div class="row row-space-30">
+            <!-- begin col-9 -->
+            <div class="col-md-9">
+                @{
+                    foreach (var item in Model.blogModel)
+                    {
+                        <!-- begin post-list -->
+                        <ul class="post-list">
+                            <li>
+                                <!-- begin post-left-info -->
+                                <div class="post-left-info">
+                                    <div class="post-date">
+                                        <span class="day">@item.CreateTime.ToString("dd")</span>
+                                        <span class="month">@item.CreateTime.ToString("MM")</span>
+                                    </div>
+                                    <div class="post-likes">
+                                        <i class="fa fa-heart-o"></i>
+                                        <span class="number">@item.BrowseNum</span>
+                                    </div>
+                                </div>
+                                <!-- end post-left-info -->
+                                <!-- begin post-content -->
+                                <div class="post-content">
+                                    <!-- begin post-info -->
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="@Html.Raw("/Web/Blog/BlogDetail/" + item.ID + ".html")">@item.Title</a>
+                                        </h4>
+                                        <div class="post-by">
+                                            <a href="@Url.Action("About","Home")">@item.Author</a> <span class="divider">|</span> <a href="@Html.Raw("/Web/Blog/BlogCategory/" + item.CategoryID + ".html")">@item.Category.Name</a><span class="divider">|</span> @item.BrowseNum 阅读<span class="divider">|</span> @item.Comment 评论
+                                        </div>
+                                        <div class="post-desc">
+                                            @Html.Raw(@item.Description)
+                                        </div>
+                                    </div>
+                                    <!-- end post-info -->
+                                    <!-- begin read-btn-container -->
+                                    <div class="read-btn-container">
+                                        <a href="@Html.Raw("/Web/Blog/BlogDetail/" + item.ID + ".html")">继续阅读 <i class="fa fa-angle-double-right"></i></a>
+                                    </div>
+                                    <!-- end read-btn-container -->
+                                </div>
+                                <!-- end post-content -->
+                            </li>
+                        </ul>
+                        <!-- end post-list -->
+            <!-- end col-9 -->
+                    }
+                }
+                <div class="section-container">
+                    <!-- begin pagination -->
+                    <div class="pagination-container text-center">
+                        <div class="col-md-2">
+                            当前页 @ViewBag.PageIndex
+                            共 @ViewBag.PageCount 页
+                        </div>
+                        <div class="col-md-10">
+                            <ul class="pagination m-t-0 m-b-0">
+                                @Html.Raw(ViewBag.Page)
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end pagination -->
+                </div>
+            </div>
+            <!-- begin col-3 -->
+            <div class="col-md-3">
+                <!-- begin section-container -->
+                <div class="section-container">
+                    <h4 class="section-title"><span>关于我</span></h4>
+                    @*<p><a href="http://www.amazingcounters.com"><img border="0" src="http://cc.amazingcounters.com/counter.php?i=3209472&amp;c=9628729" alt="AmazingCounters.com" /></a></p>*@
+                    <p>
+                    <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script></p>
+                    <audio controls="controls" autoplay="autoplay">
+                        <source src="~/src/Music/yssa.mp3" type="audio/mpeg">
+                        <embed height="100" width="100" src="~/src/Music/yssa.mp3" />
+                    </audio>
+                    <p class="about-me-desc">关于我 关于我 你知道什么</p>
+                    <p class="about-me-desc">我的快乐 我的忧伤 我的理想和寂寞</p>
+                    <p class="about-me-desc">关于我 关于我 你知道什么</p>
+                    <p class="about-me-desc">我的去处 我的过程和结束</p>
+                    <p class="about-me-desc">关于我 啊 我 关于我 啊 我</p>
+                </div>
+                <!-- end section-container -->
+                <!-- begin section-container -->
+                <div class="section-container">
+                    <h4 class="section-title"><span>分类</span></h4>
+                    <ul class="sidebar-list">
+                        @{
+                            foreach (var item in Model.categoryModel)
+                            {
+                                if (item.Count == 0)
+                                {
+                                    <li><a href="#">@item.Name (@item.Count)</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@Html.Raw("/Web/Blog/BlogCategory/" + item.ID + ".html")">@item.Name (@item.Count)</a></li>
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+                <!-- end section-container -->
+                <!-- begin section-container -->
+                <div class="section-container">
+                    <h4 class="section-title"><span>最新评论</span></h4>
+                    <ul class="sidebar-recent-post">
+                        @{
+                            int i = 1;
+                            foreach (var item in Model.commentModel2)
+                            {
+                                if (i < 6)
+                                {
+                                    <div class="info">
+                                        <h5 class="title">@i. Re：<a href="@Html.Raw("/Web/Blog/BlogDetail/" + item.BlogID + ".html")">@item.Blog.Title</a></h5>
+                                        <h5 class="title">@item.Content</h5>
+                                        <div class="date" style="text-align:right;">--@item.Name</div>
+                                        <hr />
+                                    </div>
+                                    i++;
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+                <!-- end section-container -->
+                <!-- begin section-container -->
+                <div class="section-container">
+                    <h4 class="section-title"><span>评论排行榜</span></h4>
+                    <ul class="sidebar-recent-post">
+                        @{
+                            int j = 1;
+                            foreach (var item in Model.blogModel3)
+                            {
+                                if (item.Comment > 0)
+                                {
+                                    if (j < 6)
+                                    {
+                                        <div class="info">
+                                            <h5 class="title">@j. <a href="@Html.Raw("/Web/Blog/BlogDetail/" + item.ID + ".html")">@item.Title (@item.Comment)</a></h5>
+                                            @*<div class="date">@item.CreateTime</div>*@
+                                            <hr />
+                                        </div>
+                                        j++;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+                <!-- end section-container -->
+                <!-- begin section-container -->
+                <div class="section-container">
+                    <h4 class="section-title"><span>阅读排行榜</span></h4>
+                    <ul class="sidebar-recent-post">
+                        @{
+                            int y = 1;
+                            foreach (var item in Model.blogModel2)
+                            {
+                                if (item.BrowseNum > 0)
+                                {
+                                    if (y < 6)
+                                    {
+                                        <div class="info">
+                                            <h5 class="title">@y. <a href="@Html.Raw("/Web/Blog/BlogDetail/" + item.ID + ".html")">@item.Title (@item.BrowseNum)</a></h5>
+                                            @*<div class="date">@item.CreateTime</div>*@
+                                            <hr />
+                                        </div>
+                                        y++;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+                <!-- end section-container -->
+            </div>
+            <!-- end col-3 -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end #content -->

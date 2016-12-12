@@ -1,0 +1,16 @@
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\bin\Release\UI.Infrastructures.dll
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\bin\Release\UI.Infrastructures.pdb
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\bin\Release\Microsoft.AspNet.Identity.Owin.dll
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\bin\Release\Microsoft.AspNet.Identity.Owin.xml
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\bin\Release\zh-Hans\Microsoft.AspNet.Identity.Owin.resources.dll
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\obj\Release\UI.Infrastructures.csprojResolveAssemblyReference.cache
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\obj\Release\UI.Infrastructures.dll
+E:\MyProject\LifeBlog\UI\UI.Infrastructures\obj\Release\UI.Infrastructures.pdb
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\bin\Release\UI.Infrastructures.dll
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\bin\Release\UI.Infrastructures.pdb
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\bin\Release\Microsoft.AspNet.Identity.Owin.dll
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\bin\Release\Microsoft.AspNet.Identity.Owin.xml
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\bin\Release\zh-Hans\Microsoft.AspNet.Identity.Owin.resources.dll
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\obj\Release\UI.Infrastructures.csprojResolveAssemblyReference.cache
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\obj\Release\UI.Infrastructures.dll
+F:\winterWork\LifeBlog\UI\UI.Infrastructures\obj\Release\UI.Infrastructures.pdb

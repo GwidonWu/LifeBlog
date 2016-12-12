@@ -1,0 +1,180 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gb2312">
+    <title>青涩の初夏--LifeBlog</title>
+    <meta name="Keywords" content="博客,情侣博客">
+    <meta name="Description" content="情侣博客">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href="~/src/Love/css/boy.css" rel="stylesheet">
+    <link href="~/src/Love/css/default.css" type="text/css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/modernizr.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <h1><a href="http://www.wzdyyl.cn">青涩の初夏</a></h1>
+        <p>趁我们都还年轻,多欣赏下沿途的风景，不要错过了流年里温暖的人和物...</p>
+    </header>
+    <!--nav begin-->
+    <div id="nav">
+        <ul>
+            <li><a href="@Url.Action("Index","Love")" target="_blank">主页</a></li>
+            <li><a href="http://www.wzdyyl.cn/Web/Album/Index.html" target="_blank">相册</a></li>
+        </ul>
+    </div>
+    <!--nav end-->
+    <div class="blank"></div>
+    <div class="banner">
+        <ul class="boy_girl">
+            <li class="girlimg"><a href="#"><span>关于她</span></a></li>
+            <li class="boyimg"><a href="#"><span>关于我</span></a></li>
+        </ul>
+        <ul class="texts">
+            <p><img src="~/src/Love/images/boyt-1.png" alt="人生，是一场盛大的遇见"></p>
+            <p><img src="~/src/Love/images/boyt-2.png" alt="若你懂得，就请珍惜。"></p>
+            <p><img src="~/src/Love/images/boyt-3.png" alt="无论下多久的雨，最后都会有彩虹；无论你多么悲伤，要相信幸福在前方等候"></p>
+        </ul>
+    </div>
+    <div class="blank"></div>
+    <div class="memorial_day">
+        <div class="time_axis"></div>
+        <ul>
+            <li class="n1">
+                <a href="#">相识</a>
+                <div class="dateview">2009-12-29</div>
+            </li>
+            <li class="n2">
+                <a href="#">相恋</a>
+                <div class="dateview">2012-10-26</div>
+            </li>
+            <li class="n3">
+                <a href="#">相爱</a>
+                <div class="dateview">2013-03-15</div>
+            </li>
+            <li class="n4">
+                <a href="#">相居</a>
+                <div class="dateview">2014-04-27</div>
+            </li>
+            <li class="n5">
+                <a href="#">相离</a>
+                <div class="dateview">2016-09-03</div>
+            </li>
+        </ul>
+    </div>
+    <div class="blank"></div>
+    <article>
+        <div class="l_box">
+            <div class="about_me">
+                <h2>关于我</h2>
+                <ul>
+                    <img src="~/src/Love/images/boy.jpg" />
+                    <p>姓名：WZD</p>
+                    <p>主页：love.wzdyyl.cn</p>
+                    <p>职业：程序猿</p>
+                </ul>
+            </div>
+            <div class="about_he">
+                <h2>关于她</h2><ul>
+                    <img src="~/src/Love/images/girl.jpg" />
+                    <p>姓名：XXX</p>
+                    <p>主页：love.wzdyyl.cn</p>
+                    <p>职业：家庭主妇</p>
+                </ul>
+
+            </div>
+            <div class="newslist">
+                <h2>爱情宣言</h2>
+                <ul>
+                    <li><a href="#">还要找什么理由,爱情早已无法回首</a></li>
+                    <li><a href="#">曾经说好的天长地久,早已空空化作无有</a></li>
+                    <li><a href="#">还要找什么借口,别把誓言当成爱情的枷锁</a></li>
+                </ul>
+            </div>
+            <div class="viny">
+                <ul>
+                    <dl>
+                        <dt class="art"><img src="~/src/Love/images/artwork.png" alt="专辑"></dt>
+                        <dd class="icon-song"><span></span>一生所爱</dd>
+                        <dd class="icon-artist"><span></span>歌手：卢冠廷</dd>
+                        <dd class="icon-album"><span></span>《大话西游》插曲</dd>
+                        <dd class="music">
+                            <audio controls="controls" autoplay="autoplay">
+                                <source src="~/src/Love/music/yssa.mp3" type="audio/mpeg">
+                                <embed height="100" width="100" src="~/src/Music/yssa.mp3" />
+                            </audio>
+                        </dd>
+                        <!--也可以添加loop属性 音频加载到末尾时，会重新播放-->
+                    </dl>
+                </ul>
+            </div>
+        </div>
+        <!--l_box end -->
+
+        <div id="loveHeart">
+            <canvas id="garden"></canvas>
+            <div id="words">
+                <div id="messages">
+                    XXX, I have fallen in love with you for
+                    <div id="elapseClock"></div>
+                </div>
+                <div id="loveu">
+                    Love u forever and ever.<br />
+                    <div class="signature">- WZD</div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+
+    <script type="text/javascript" src="~/src/Love/js/jquery.js"></script>
+    <script type="text/javascript" src="~/src/Love/js/garden.js"></script>
+    <script type="text/javascript" src="~/src/Love/js/functions_dev.js"></script>
+
+    <script type="text/javascript">
+        var offsetX = $("#loveHeart").width() / 2;
+        var offsetY = $("#loveHeart").height() / 2 - 55;
+        var displayMode = 1;
+        var together = new Date();
+        together.setFullYear(2012, 9, 26);
+        together.setHours(0);
+        together.setMinutes(0);
+        together.setSeconds(0);
+        together.setMilliseconds(0);
+
+        $("#loveHeart").click(function () {
+            displayMode *= -1;
+            timeElapse(together, displayMode);
+        });
+
+        if (!document.createElement('canvas').getContext) {
+            var msg = document.createElement("div");
+            msg.id = "errorMsg";
+            msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+            document.body.appendChild(msg);
+            $("#code").css("display", "none")
+            $("#copyright").css("position", "absolute");
+            $("#copyright").css("bottom", "10px");
+            document.execCommand("stop");
+        } else {
+            setTimeout(function () {
+                adjustWordsPosition();
+                startHeartAnimation();
+            }, 5000);
+
+            timeElapse(together, displayMode);
+            setInterval(function () {
+                timeElapse(together, displayMode);
+            }, 500);
+
+            adjustCodePosition();
+            $("#code").typewriter();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+﻿@using DAL.Entity.Entities
+@model IEnumerable<FileLibrary>
+
+<!-- begin #content -->
+<div id="content" class="content">
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li class="active">导航栏</li>
+        <li class="active">相册管理</li>
+        <li class="active">相片列表2</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">相片列表2<small>header small text goes here...</small></h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-10 -->
+        <div class="col-md-12">
+            <!-- begin panel -->
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                    </div>
+                    <h4 class="panel-title">PhotoList2</h4>
+                </div>
+                <div class="panel-body">
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>相片旧名称</th>
+                                <th>相片新名称</th>
+                                <th>相片类型</th>
+                                <th>相片大小</th>
+                                <th>相片路径</th>
+                                <th>上传时间</th>
+                                <th>相册夹ID</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ID<input id="Hidden1" type="hidden" value="@item.ID" /></td>
+                                    <td>@item.OldFileName</td>
+                                    <td>@item.NewFileName</td>
+                                    <td>@item.Extension</td>
+                                    <td>@item.Size</td>
+                                    <td>@item.Url</td>
+                                    <td>@item.CreateTime</td>
+                                    <td>@item.AlbumID</td>
+                                    <td><input type="button" class="Update" title="Update" value="编辑"><span> </span><input type="button" class="Delete" title="Delete" value="删除"></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- end panel -->
+        </div>
+        <!-- end col-10 -->
+    </div>
+    <!-- end row -->
+</div>
+<!-- end #content -->
+
+<script src="~/src/Admin/assets/plugins/DataTables/media/js/jquery.js"></script>
+<script>
+		$(document).ready(function() {
+			$('#example').dataTable();
+		});
+
+		$(function () {
+		    $('table').on('click', '.Delete', function () {
+		        var td = $(this).closest('tr').find('td');
+
+		        var obj = {};
+		        obj.ID = td.find("input:hidden[id=Hidden1]").val();
+
+		        $.ajax({
+		            type: "POST",
+		            url: "/Admin/Photo/DeletePhoto2",
+		            data: JSON.stringify(obj),
+		            dataType: "json",
+		            contentType: "application/json;charset=utf-8",
+		            success: function (data) {
+		                alert("删除成功!")
+		                row.remove();
+		            },
+		            error: function (jqXHR, textStatus, errorThrown) {
+		                alert(errorThrown);
+		            }
+		        });
+		    });
+		});
+</script>
+
+
